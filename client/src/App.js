@@ -10,9 +10,7 @@ const App = () => {
         
         <div className='mx-auto text-center'>
           
-          <div class=" space-x-4 grid grid-flow-col auto-cols-max">
-            <div><VideoPlayer/></div>
-            <div><VideoPlayer/></div>
+          <div class="flex justify-center space-x-4 grid-flow-col auto-cols-max">
             <div><VideoPlayer/></div>
           </div>
           <Options>
