@@ -9,7 +9,12 @@ const App = () => {
     <div className='flex flex-col flex-auto h-screen bg-woodsmoke-900'>
         
         <div className='mx-auto text-center'>
-          <VideoPlayer/>
+          
+          <div class=" space-x-4 grid grid-flow-col auto-cols-max">
+            <div><VideoPlayer/></div>
+            <div><VideoPlayer/></div>
+            <div><VideoPlayer/></div>
+          </div>
           <Options>
             <Notifications/>
           </Options>
