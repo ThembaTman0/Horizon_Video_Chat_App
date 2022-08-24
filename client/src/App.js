@@ -6,7 +6,7 @@ import VideoPlayer from './components/VideoPlayer'
 
 const App = () => {
   return (
-    <div className='flex flex-col flex-auto h-full bg-woodsmoke-900'>
+    <div className='flex flex-col flex-auto h-screen bg-woodsmoke-900'>
         
         <div className='mx-auto text-center'>
           <VideoPlayer/>

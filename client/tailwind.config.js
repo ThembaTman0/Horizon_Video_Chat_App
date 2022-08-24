@@ -15,10 +15,12 @@ module.exports = {
           '700': '#3c3f49',
           '800': '#33353c',
           '900': '#18191c',
+          '925': '#060607',
       },
       fontFamily: {
         'poppins': ["'Poppins'", 'sans-serif']
       },
+
       
       }
     },
