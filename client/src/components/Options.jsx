@@ -13,6 +13,7 @@ const Options = ( {children}) => {
   
   return (
     <div>
+
       <div>
   
       <form noValidate autoComplete='off'>
@@ -26,14 +27,15 @@ const Options = ( {children}) => {
                     <BsFillMicMuteFill className='text-woodsmoke-100 '/>
                   </div>
             </button>
+            
             {/* Accept and end call */}
             {
               callAccepted && !callEnded ?(
-                <button onClick={leaveCall} className='w-9 h-9 rounded-lg drop-shadow-lg  bg-red-700'>
+                <div onClick={leaveCall} className='w-9 h-9 rounded-lg drop-shadow-lg  bg-red-700'>
                 <div className='flex  justify-center items-center '>
                     <MdCallEnd className='text-woodsmoke-100'/>
                   </div>
-              </button>
+              </div>
               ):(
                 <button onClick={()=> callUser(idToCall)} className='w-9 h-9 rounded-lg drop-shadow-lg  bg-green-700'>
                 <div className='flex  justify-center items-center '>
@@ -41,8 +43,10 @@ const Options = ( {children}) => {
                   </div>
               </button>
               )
-            }
+            }                
+
               <CopyToClipboard text={me}>
+
                 <button className='w-8 h-8 rounded-lg bg-opacity-50 backdrop-blur-xl drop-shadow-lg  bg-woodsmoke-925'>
                   <div className='flex  justify-center items-center '>
                     <MdContentCopy className='text-woodsmoke-100 '/>
@@ -55,14 +59,14 @@ const Options = ( {children}) => {
             <div className='flex justify-center m-6 space-x-4'>
               <input label="Name" value={name} onChange={(e)=> setName(e.target.value)} placeholder="Enter Name" type="text" id="base-input" class="w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
               <input label="ID to Call" value={idToCall} onChange={(e)=> setIdToCall(e.target.value)} placeholder="Enter Call ID" type="text" id="base-input" class="w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-
+              {console.log(me)}
             </div>
         </div>
       </form>
-
+      {children}
       </div>
 
-        {children}
+
     </div>
   )
 }
