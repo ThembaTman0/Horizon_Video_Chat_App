@@ -1,4 +1,4 @@
-import { Container } from 'postcss';
+
 import React, { useContext, useState } from 'react'
 import {CopyToClipboard} from 'react-copy-to-clipboard'
 import {MdContentCopy,MdCallEnd} from 'react-icons/md'
@@ -15,10 +15,11 @@ const Options = ( {children}) => {
     <div>
 
       <div>
-  
-      <form noValidate autoComplete='off'>
+      {console.log("Helo")}
+      <form noValidate autoComplete='off' 
+        className='bg-red-500'
+      >
           <p>Enter Name</p>
-          
           <div>
           <div className='space-x-4'>
             
@@ -62,7 +63,9 @@ const Options = ( {children}) => {
               {console.log(me)}
             </div>
         </div>
+          
       </form>
+      
       {children}
       </div>
 
