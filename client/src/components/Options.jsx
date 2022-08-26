@@ -1,77 +1,132 @@
-
-import React, { useContext, useState } from 'react'
-import {CopyToClipboard} from 'react-copy-to-clipboard'
+import React, { useState, useContext } from 'react';
+import { Button, TextField, Grid, Typography, Container, Paper } from '@material-ui/core';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Assignment, Phone, PhoneDisabled } from '@material-ui/icons';
+import { makeStyles } from '@material-ui/core/styles';
 import {MdContentCopy,MdCallEnd} from 'react-icons/md'
 import {IoIosCall} from 'react-icons/io'
 import {BsFillMicMuteFill} from 'react-icons/bs'
-import { SocketContext } from '../SocketContext'
+import {SocketContext} from '../SocketContext'
 
-const Options = ( {children}) => {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  gridContainer: {
+    width: '100%',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+    },
+  },
+  container: {
+    width: '600px',
+    margin: '35px 0',
+    padding: 0,
+    [theme.breakpoints.down('xs')]: {
+      width: '80%',
+    },
+  },
+  margin: {
+    marginTop: 20,
+  },
+  padding: {
+    padding: 5,
+  },
+  // paper: {
+  //   padding: '10px 20px',
+  //   background: 'none',
+  //   boxShadow: 'none',
 
-  const {me, callAccepted, name , setName, leaveCall, callUser, callEnded} = useContext(SocketContext);
-  const [idToCall, setIdToCall]= useState('');
-  
+  // },
+}));
+
+const Options = ({ children }) => {
+  const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
+  const [idToCall, setIdToCall] = useState('');
+  const classes = useStyles();
+  const buttonsides=10;
+
   return (
-    <div>
-
-      <div>
-      {console.log("Helo")}
-      <form noValidate autoComplete='off' 
-        className='bg-red-500'
-      >
-          <p>Enter Name</p>
-          <div>
-          <div className='space-x-4'>
-            
-            <button className='w-8 h-8 rounded-lg bg-opacity-50 backdrop-blur-xl drop-shadow-lg  bg-woodsmoke-925'>
-                <div className='flex  justify-center items-center '>
-                    <BsFillMicMuteFill className='text-woodsmoke-100 '/>
-                  </div>
-            </button>
-            
-            {/* Accept and end call */}
-            {
-              callAccepted && !callEnded ?(
-                <div onClick={leaveCall} className='w-9 h-9 rounded-lg drop-shadow-lg  bg-red-700'>
-                <div className='flex  justify-center items-center '>
-                    <MdCallEnd className='text-woodsmoke-100'/>
-                  </div>
-              </div>
-              ):(
-                <button onClick={()=> callUser(idToCall)} className='w-9 h-9 rounded-lg drop-shadow-lg  bg-green-700'>
-                <div className='flex  justify-center items-center '>
-                    <IoIosCall className='text-woodsmoke-100'/>
-                  </div>
-              </button>
-              )
-            }                
-
+    <div className='flex justify-center'>
+      <div className='flex justify-center w-120'>
+      {/* <Paper elevation={10} className={classes.paper}> */}
+        <form className={classes.root} noValidate autoComplete="off">
+          <div className='flex justify-center space-x-4'>
+            <div>
+              {/* <Typography gutterBottom variant="h6">Account Info</Typography> */}
+              
               <CopyToClipboard text={me}>
+                <Button 
+                 style={{ 
+                  maxWidth: '40px', maxHeight: '40px', minWidth: '40px', minHeight: '40px',
+                  borderRadius: '12px',
+                  backgroundColor: "#060607"
+                 }}
+                 variant="contained" >
+                    <div className='text-white'>
+                      <MdContentCopy  size={20}/>
+                    </div>
 
-                <button className='w-8 h-8 rounded-lg bg-opacity-50 backdrop-blur-xl drop-shadow-lg  bg-woodsmoke-925'>
-                  <div className='flex  justify-center items-center '>
-                    <MdContentCopy className='text-woodsmoke-100 '/>
-                  </div>
-                </button>
+                </Button>
               </CopyToClipboard>
-          </div>
-
-            {/* <label for="base-input" class="block text-sm font-medium text-gray-900 dark:text-gray-300">Enter Name</label> */}
-            <div className='flex justify-center m-6 space-x-4'>
-              <input label="Name" value={name} onChange={(e)=> setName(e.target.value)} placeholder="Enter Name" type="text" id="base-input" class="w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-              <input label="ID to Call" value={idToCall} onChange={(e)=> setIdToCall(e.target.value)} placeholder="Enter Call ID" type="text" id="base-input" class="w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-              {console.log(me)}
             </div>
-        </div>
-          
-      </form>
-      
-      {children}
-      </div>
+            <div>
+              {/* <Typography gutterBottom variant="h6">Make a call</Typography> */}
+              
+              {callAccepted && !callEnded ? (
+                <Button
+                style={{
+                maxWidth: '42x', maxHeight: '42px', minWidth: '42px', minHeight: '42px',
+                borderRadius: '12px',
+                backgroundColor: "red"}}
+                variant="contained" onClick={leaveCall} >
+                    <div className='text-white'>
+                      <MdCallEnd  size={20}/>
+                    </div>
+                </Button>
+              ) : (
+                <Button 
+                style={{ 
+                  maxWidth: '42x', maxHeight: '42px', minWidth: '42px', minHeight: '42px',
+                  borderRadius: '12px',
+                  backgroundColor: "green"}}
+                variant="contained" onClick={() => callUser(idToCall)}>
+                    <div className='text-white'>
+                      <IoIosCall  size={20}/>
+                    </div>
+                </Button>
+              )}
 
+            </div>
+            <div>
+                <Button 
+                 style={{ 
+                  maxWidth: '40px', maxHeight: '40px', minWidth: '40px', minHeight: '40px',
+                  borderRadius: '12px',
+                  backgroundColor: "#060607"
+                 }}
+                 variant="contained" >
+                    <div className='text-white'>
+                      <BsFillMicMuteFill size={20}/>
+                    </div>
 
+                </Button>
+
+            </div>
+          </div>
+            <div className='flex justify-center'>
+                <div className='flex justify-center m-6 space-x-4'>
+                  <input label="Name" value={name} onChange={(e)=> setName(e.target.value)} placeholder="Enter Name" type="text" id="base-input" class="w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                  <input label="ID to Call" value={idToCall} onChange={(e)=> setIdToCall(e.target.value)} placeholder="Enter Call ID" type="text" id="base-input" class="w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                </div>
+              </div>
+        </form>
+        {children}
+      {/* </Paper> */}
     </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Options
+export default Options;
