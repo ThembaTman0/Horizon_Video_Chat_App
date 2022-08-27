@@ -8,6 +8,7 @@ import {IoIosCall} from 'react-icons/io'
 import {BsFillMicMuteFill} from 'react-icons/bs'
 import {SocketContext} from '../SocketContext'
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -41,31 +42,34 @@ const useStyles = makeStyles((theme) => ({
   // },
 }));
 
-const Options = ({ children }) => {
+const Options = () => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
   const classes = useStyles();
-  const buttonsides=10;
+
+
+
 
   return (
-    <div className='flex justify-center'>
+    <div className='fixed flex justify-center bottom-0'>
       <div className='flex justify-center w-120'>
       {/* <Paper elevation={10} className={classes.paper}> */}
         <form className={classes.root} noValidate autoComplete="off">
-          <div className='flex justify-center space-x-4'>
+          <div className='flex justify-center items-center space-x-4'>
             <div>
               {/* <Typography gutterBottom variant="h6">Account Info</Typography> */}
               
               <CopyToClipboard text={me}>
                 <Button 
+                 
                  style={{ 
-                  maxWidth: '40px', maxHeight: '40px', minWidth: '40px', minHeight: '40px',
+                  maxWidth: '35px', maxHeight: '35px', minWidth: '35px', minHeight: '35px',
                   borderRadius: '12px',
                   backgroundColor: "#060607"
                  }}
                  variant="contained" >
                     <div className='text-white'>
-                      <MdContentCopy  size={20}/>
+                      <MdContentCopy  size={17}/>
                     </div>
 
                 </Button>
@@ -77,23 +81,24 @@ const Options = ({ children }) => {
               {callAccepted && !callEnded ? (
                 <Button
                 style={{
-                maxWidth: '42x', maxHeight: '42px', minWidth: '42px', minHeight: '42px',
+                maxWidth: '40x', maxHeight: '40px', minWidth: '40px', minHeight: '40px',
                 borderRadius: '12px',
                 backgroundColor: "red"}}
                 variant="contained" onClick={leaveCall} >
                     <div className='text-white'>
-                      <MdCallEnd  size={20}/>
+                      <MdCallEnd  size={18}/>
                     </div>
                 </Button>
               ) : (
                 <Button 
+               
                 style={{ 
-                  maxWidth: '42x', maxHeight: '42px', minWidth: '42px', minHeight: '42px',
+                  maxWidth: '40x', maxHeight: '40px', minWidth: '40px', minHeight: '40px',
                   borderRadius: '12px',
                   backgroundColor: "green"}}
                 variant="contained" onClick={() => callUser(idToCall)}>
                     <div className='text-white'>
-                      <IoIosCall  size={20}/>
+                      <IoIosCall  size={18}/>
                     </div>
                 </Button>
               )}
@@ -102,13 +107,13 @@ const Options = ({ children }) => {
             <div>
                 <Button 
                  style={{ 
-                  maxWidth: '40px', maxHeight: '40px', minWidth: '40px', minHeight: '40px',
+                  maxWidth: '35px', maxHeight: '35px', minWidth: '35px', minHeight: '35px',
                   borderRadius: '12px',
                   backgroundColor: "#060607"
                  }}
                  variant="contained" >
                     <div className='text-white'>
-                      <BsFillMicMuteFill size={20}/>
+                      <BsFillMicMuteFill size={17}/>
                     </div>
 
                 </Button>
@@ -122,7 +127,7 @@ const Options = ({ children }) => {
                 </div>
               </div>
         </form>
-        {children}
+        {/* {children} */}
       {/* </Paper> */}
     </div>
     </div>
