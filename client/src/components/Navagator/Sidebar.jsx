@@ -15,7 +15,7 @@ const SIdebar = ({children}) => {
                 <li><RiSettings4Fill/></li>
             </ul>
         </div>
-        <div className='backdrop-filter backdrop-blur-xl bg-opacity-50 bg-woodsmoke-400  w-72 h-52 rounded-[12px] p-4 '>
+        <div>
           {children}
         </div>
     </div>

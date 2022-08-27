@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import {BsMicMuteFill} from 'react-icons/bs'
+
 import {SocketContext} from '../SocketContext'
 
 const VideoPlayer = () => {

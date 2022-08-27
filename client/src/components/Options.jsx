@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { Button, TextField, Grid, Typography, Container, Paper } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Assignment, Phone, PhoneDisabled } from '@material-ui/icons';
+
 import { makeStyles } from '@material-ui/core/styles';
 import {MdContentCopy,MdCallEnd} from 'react-icons/md'
 import {IoIosCall} from 'react-icons/io'
@@ -69,7 +69,7 @@ const Options = () => {
                  }}
                  variant="contained" >
                     <div className='text-white'>
-                      <MdContentCopy  size={17}/>
+                      <MdContentCopy  size={15}/>
                     </div>
 
                 </Button>
@@ -86,7 +86,7 @@ const Options = () => {
                 backgroundColor: "red"}}
                 variant="contained" onClick={leaveCall} >
                     <div className='text-white'>
-                      <MdCallEnd  size={18}/>
+                      <MdCallEnd  size={15}/>
                     </div>
                 </Button>
               ) : (
@@ -98,7 +98,7 @@ const Options = () => {
                   backgroundColor: "green"}}
                 variant="contained" onClick={() => callUser(idToCall)}>
                     <div className='text-white'>
-                      <IoIosCall  size={18}/>
+                      <IoIosCall  size={15}/>
                     </div>
                 </Button>
               )}
@@ -113,7 +113,7 @@ const Options = () => {
                  }}
                  variant="contained" >
                     <div className='text-white'>
-                      <BsFillMicMuteFill size={17}/>
+                      <BsFillMicMuteFill size={15}/>
                     </div>
 
                 </Button>
@@ -122,7 +122,8 @@ const Options = () => {
           </div>
             <div className='flex justify-center'>
                 <div className='flex justify-center m-6 space-x-4'>
-                  <input label="Name" value={name} onChange={(e)=> setName(e.target.value)} placeholder="Enter Name" type="text" id="base-input" class="w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                  <input label="Name" value={name} onChange={(e)=> setName(e.target.value)} placeholder="Enter Name" type="text" id="base-input" class="peer w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+
                   <input label="ID to Call" value={idToCall} onChange={(e)=> setIdToCall(e.target.value)} placeholder="Enter Call ID" type="text" id="base-input" class="w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                 </div>
               </div>
