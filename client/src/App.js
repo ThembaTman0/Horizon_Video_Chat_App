@@ -7,20 +7,19 @@ import VideoPlayer from './components/VideoPlayer'
 const App = () => {
   return (
     <div className='flex flex-col flex-auto h-screen bg-woodsmoke-900'>
-        
+        <Notifications/>
         <div className='mx-auto flex justify-center text-center'>
-
-          <div class="flex justify-center space-x-4 grid-flow-col auto-cols-max">
-            <div><VideoPlayer/></div>
-          </div>
           
-          <Options />
-
+          <div class="flex justify-center space-x-4 grid-flow-col auto-cols-max">
+            <div><VideoPlayer/>
+            </div>
+          </div>
+          <Options/>
           
         </div>
-        <Sidebar>
-          <Notifications/>
-        </Sidebar>
+        
+
+        <Sidebar/>
     </div>
   )
 }

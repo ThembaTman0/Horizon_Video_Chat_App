@@ -9,23 +9,23 @@ const Notifications = () => {
 
 
   return (
-    <div className='items-center '>
-      <div className='space-y-4'>
 
-        <div className=''>
+      <div className='flex justify-center items-center' >
+
+        <div className='pt-4'>
           {call.isReceivingCall && !callAccepted && (
-              <div className='text-white backdrop-filter backdrop-blur-xl bg-opacity-50 bg-woodsmoke-700  w-72 h-52 rounded-[12px] p-4 '>
+              <div className='text-white backdrop-filter backdrop-blur-xl bg-opacity-50 bg-woodsmoke-700  w-72 h-28 rounded-[12px] p-4 '>
                 <div className='text-center items-center space-x-4 '>
-                  <button>
+                  {/* <button>
                     <MdOutlineCancel/>
-                  </button>
-                  <div className='text-center items-center font-bold'>
+                  </button> */}
+                  <div className='text-center items-center font-bold p-2'>
                     <h1>Allow {call.name} to join meeting</h1>
                   </div>
-                  <h1 className='mb-4'>{call.name} is calling</h1>
+                  
                   <Button                  
                     style={{ 
-                          minWidth: '95px', maxWidth: '95px',
+                          minWidth: '95px', maxWidth: '95px',  maxHeight: '30px', minHeight: '30px',
                           borderRadius: '12px',
                           backgroundColor: "blue"
                         }}
@@ -34,7 +34,7 @@ const Notifications = () => {
                   </Button>
                   <Button                  
                     style={{ 
-                          minWidth: '95px', maxWidth: '95px',
+                          minWidth: '95px', maxWidth: '95px',  maxHeight: '30px', minHeight: '30px',
                           borderRadius: '12px',
                           backgroundColor: "red"
                         }}
@@ -48,7 +48,6 @@ const Notifications = () => {
 
       </div>
 
-    </div>
 
   );
 };

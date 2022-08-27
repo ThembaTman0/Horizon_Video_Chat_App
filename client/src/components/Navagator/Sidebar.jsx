@@ -3,7 +3,7 @@ import {TiHome} from 'react-icons/ti'
 import {IoCalendar, IoVideocam, IoChatbox} from 'react-icons/io5'
 import {RiSettings4Fill} from 'react-icons/ri'
 
-const SIdebar = ({children}) => {
+const SIdebar = () => {
   return (
     <div className='w-16 h-screen'>
         <div className='absolute top-1/3 items-center ml-6 '>
@@ -14,9 +14,6 @@ const SIdebar = ({children}) => {
                 <li><IoChatbox/></li>
                 <li><RiSettings4Fill/></li>
             </ul>
-        </div>
-        <div>
-          {children}
         </div>
     </div>
   )
