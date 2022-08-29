@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button } from '@material-ui/core';
-import {MdOutlineCancel} from 'react-icons/md'
+
 import { SocketContext } from '../SocketContext';
 
 const Notifications = () => {
