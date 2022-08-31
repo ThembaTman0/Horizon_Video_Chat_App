@@ -2,11 +2,14 @@ import React from 'react'
 import {IoCalendar, IoVideocam, IoChatbox} from 'react-icons/io5'
 import { Button } from '@material-ui/core';
 import {SiAddthis} from 'react-icons/si'
+import {Link} from 'react-router-dom'
+
 
 const LandingNav = () => {
   return (
     <div className='p-2 flex space-x-16 text-white'>
         <div className=''>
+        <Link to='/home'>
             <Button 
                     
                     style={{ 
@@ -20,6 +23,7 @@ const LandingNav = () => {
                     
                 </div>
             </Button>
+        </Link>
             <p className='text-[10px] text-center pt-1'>New meeting</p>
         </div>
         <div className=''>
