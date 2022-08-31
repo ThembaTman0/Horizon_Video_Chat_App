@@ -5,7 +5,7 @@ import {RiSettings4Fill} from 'react-icons/ri'
 
 const SIdebar = () => {
   return (
-    <div className='w-16 h-screen'>
+    <div className=''>
         <div className='absolute top-1/3 items-center ml-6 '>
             <ul className='text-woodsmoke-100 text-center space-y-9'>
                 <li><TiHome/></li>
