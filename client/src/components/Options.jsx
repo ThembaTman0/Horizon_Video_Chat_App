@@ -5,6 +5,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { makeStyles } from '@material-ui/core/styles';
 import {MdContentCopy,MdCallEnd} from 'react-icons/md'
 import {IoIosCall} from 'react-icons/io'
+import {IoVideocam} from 'react-icons/io5'
+import {BiVideoOff} from 'react-icons/bi'
 import {BsFillMicMuteFill} from 'react-icons/bs'
 import {SocketContext} from '../SocketContext'
 
@@ -46,7 +48,15 @@ const Options = () => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
   const classes = useStyles();
+  const [playing, setPlaying]= useState(false);
 
+  const startVideo= ()=>{
+
+  }
+
+  const stopVideo= ()=>{
+    
+  }
 
 
 
@@ -105,18 +115,33 @@ const Options = () => {
 
             </div>
             <div>
-                <Button 
-                 style={{ 
-                  maxWidth: '35px', maxHeight: '35px', minWidth: '35px', minHeight: '35px',
-                  borderRadius: '12px',
-                  backgroundColor: "#060607"
-                 }}
-                 variant="contained" >
-                    <div className='text-white'>
-                      <BsFillMicMuteFill size={15}/>
-                    </div>
-
+                {playing ? (
+                  <Button 
+                    style={{ 
+                    maxWidth: '35px', maxHeight: '35px', minWidth: '35px', minHeight: '35px',
+                    borderRadius: '12px',
+                    backgroundColor: "#060607"
+                    }}
+                    variant="contained" >
+                      <div className='text-white'>
+                        <BiVideoOff size={15}/>
+                      </div>
+                    
                 </Button>
+                ):(
+                  <Button 
+                    style={{ 
+                    maxWidth: '35px', maxHeight: '35px', minWidth: '35px', minHeight: '35px',
+                    borderRadius: '12px',
+                    backgroundColor: "#060607"
+                    }}
+                    variant="contained" >
+                      <div className='text-white'>
+                        <IoVideocam size={15}/>
+                      </div>
+ 
+                 </Button>
+                )}
 
             </div>
           </div>

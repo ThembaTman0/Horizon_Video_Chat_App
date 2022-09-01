@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 
 
 const LandingNav = () => {
+    
   return (
     <div className='p-2 flex space-x-16 text-white'>
         <div className=''>
@@ -22,6 +23,7 @@ const LandingNav = () => {
                     <IoVideocam/>
                     
                 </div>
+                
             </Button>
         </Link>
             <p className='text-[10px] text-center pt-1'>New meeting</p>
