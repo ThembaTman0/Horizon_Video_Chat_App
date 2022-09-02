@@ -29,6 +29,7 @@ const LandingNav = () => {
             <p className='text-[10px] text-center pt-1'>New meeting</p>
         </div>
         <div className=''>
+        <Link to='/join'>
             <Button 
                     
                     style={{ 
@@ -42,6 +43,7 @@ const LandingNav = () => {
                     
                 </div>
             </Button>
+        </Link>
             <p className='text-[10px] text-center pt-1'>Join</p>
         </div>
         <div className=''>
@@ -58,6 +60,7 @@ const LandingNav = () => {
                     
                 </div>
             </Button>
+
             <p className='text-[10px] text-center pt-1'>Schedule</p>
         </div>
     </div>
