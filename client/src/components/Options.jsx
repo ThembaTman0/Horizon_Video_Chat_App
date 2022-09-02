@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { Button } from '@material-ui/core';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
@@ -45,21 +45,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Options = () => {
-  const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
+  const { me, callAccepted, name, setName, callEnded, leaveCall, callUser, handleVideo, stream } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
   const classes = useStyles();
   const [playing, setPlaying]= useState(false);
 
-  const startVideo= ()=>{
-
-  }
-
-  const stopVideo= ()=>{
-    
-  }
-
-
-
+  
   return (
     <div className='fixed flex justify-center bottom-0'>
       <div className='flex justify-center w-120'>
@@ -115,8 +106,9 @@ const Options = () => {
 
             </div>
             <div>
-                {playing ? (
+               
                   <Button 
+                    onClick={handleVideo}
                     style={{ 
                     maxWidth: '35px', maxHeight: '35px', minWidth: '35px', minHeight: '35px',
                     borderRadius: '12px',
@@ -124,12 +116,14 @@ const Options = () => {
                     }}
                     variant="contained" >
                       <div className='text-white'>
-                        <BiVideoOff size={15}/>
+                      {stream ? <BiVideoOff size={15}/> : 
+                    <IoVideocam size={15}/>}
+
                       </div>
                     
                 </Button>
-                ):(
-                  <Button 
+               
+                  {/* <Button 
                     style={{ 
                     maxWidth: '35px', maxHeight: '35px', minWidth: '35px', minHeight: '35px',
                     borderRadius: '12px',
@@ -140,8 +134,8 @@ const Options = () => {
                         <IoVideocam size={15}/>
                       </div>
  
-                 </Button>
-                )}
+                 </Button> */}
+
 
             </div>
           </div>

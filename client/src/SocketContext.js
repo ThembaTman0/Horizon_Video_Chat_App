@@ -15,6 +15,8 @@ const ContextProvider = ({ children }) => {
   const [call, setCall] = useState({});
   const [me, setMe] = useState('');
 
+  const [videoswitch, setvideo] = useState(true);
+  const [audioswitch, setaudio] = useState(true);
   const myVideo = useRef();
   const userVideo = useRef();
   const connectionRef = useRef();
@@ -23,7 +25,9 @@ const ContextProvider = ({ children }) => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
-
+        myVideo.current.srcObject = stream;
+        myVideo.current.autoplay = true;
+        myVideo.current.muted = false;
         myVideo.current.srcObject = currentStream;
       });
 
@@ -78,6 +82,48 @@ const ContextProvider = ({ children }) => {
     connectionRef.current.destroy();
 
     window.location.reload();
+  };
+
+
+
+
+    const handleVideo = () => {
+      if (videoswitch) {
+          setvideo(false);
+          stream.getTracks().forEach(function (track) {
+              if (track.readyState === "live" && 
+                  track.kind === "video") {
+                  track.enabled = false;
+              }
+          });
+      } else {
+          setvideo(true);
+          stream.getTracks().forEach(function (track) {
+              if (track.readyState === "live" && 
+                  track.kind === "video") {
+                  track.enabled = true;
+              }
+          });
+      }
+  };
+  const handleAudio = () => {
+      if (audioswitch) {
+          setaudio(false);
+          stream.getTracks().forEach(function (track) {
+              if (track.readyState === "live" && 
+                  track.kind === "audio") {
+                  track.enabled = false;
+              }
+          });
+      } else {
+          setaudio(true);
+          stream.getTracks().forEach(function (track) {
+              if (track.readyState === "live" && 
+                  track.kind === "audio") {
+                  track.enabled = true;
+              }
+          });
+      }
   };
 
   return (
