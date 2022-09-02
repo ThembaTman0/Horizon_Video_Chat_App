@@ -139,13 +139,13 @@ const Options = () => {
 
             </div>
           </div>
-            <div className='flex justify-center'>
+            {/* <div className='flex justify-center'>
                 <div className='flex justify-center m-6 space-x-4'>
                   <input label="Name" value={name} onChange={(e)=> setName(e.target.value)} placeholder="Enter Name" type="text" id="base-input" class="peer w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
 
                   <input label="ID to Call" value={idToCall} onChange={(e)=> setIdToCall(e.target.value)} placeholder="Enter Call ID" type="text" id="base-input" class="w-18 bg-black border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-woodsmoke-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                 </div>
-              </div>
+              </div> */}
         </form>
         {/* {children} */}
       {/* </Paper> */}
