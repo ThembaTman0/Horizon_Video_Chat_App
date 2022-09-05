@@ -46,7 +46,7 @@ const JoinPage = () => {
                 </div>
         </div> 
         <div className='flex justify-center items-center'>
-          <Link to='/home'>
+          {/* <Link to='/home'> */}
               <Button 
                       
                       style={{ 
@@ -60,7 +60,7 @@ const JoinPage = () => {
                       
                   </div>
               </Button>
-          </Link>
+          {/* </Link> */}
               
           </div>
       </div>

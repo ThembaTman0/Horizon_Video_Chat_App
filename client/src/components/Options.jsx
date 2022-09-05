@@ -52,7 +52,7 @@ const Options = () => {
 
   
   return (
-    <div className='fixed flex justify-center bottom-0'>
+    <div className='fixed flex justify-center bottom-6'>
       <div className='flex justify-center w-120'>
       {/* <Paper elevation={10} className={classes.paper}> */}
         <form className={classes.root} noValidate autoComplete="off">
